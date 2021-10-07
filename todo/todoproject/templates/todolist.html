@@ -1,0 +1,13 @@
+<h1>My To Do List</h1>
+<ul>
+    {% for obj in all_items %}
+    <form action='/delToDoItems/{{obj.id}}/' method='POST'> {% csrf_token %}
+        <li>{{obj.content}} <input type='submit' value="delete"></li>
+    </form>
+    {% endfor %}
+</ul>
+
+<form action='/addToDoItems/' method='POST'> {% csrf_token %}
+    <input type='text' name='content'>
+    <input type='submit' value='Add to do item'>
+</form>
